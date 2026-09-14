@@ -16,7 +16,7 @@
         // IMPORTANT:
         // In a real production application, passwords should
         // never be stored as plain text.
-        // We will improve this later using password hashing.
+       // Password is stored as a secure hash using ASP.NET Core PasswordHasher.
         public string Password { get; set; } = string.Empty;
 
         // Role of the user.

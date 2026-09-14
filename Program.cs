@@ -292,24 +292,6 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateProductValidator>();
 
 var app = builder.Build();
 
-// TEMPORARY password hash generation
-//var hasher = new PasswordHasher<User>();
-
-//var tempUser = new User
-//{
-//    Username = "user",
-//    Role = "User"
-//};
-
-//var hashedPassword = hasher.HashPassword(
-//    tempUser,
-//    "User@123"
-//);
-
-//Console.WriteLine("=================================");
-//Console.WriteLine("USER HASHED PASSWORD:");
-//Console.WriteLine(hashedPassword);
-//Console.WriteLine("=================================");
 
 // existing middleware...
 
