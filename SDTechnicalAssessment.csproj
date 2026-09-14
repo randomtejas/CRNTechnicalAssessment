@@ -38,4 +38,11 @@
     <Folder Include="Infrastructure\Identity\" />
   </ItemGroup>
 
+ <!-- Do not compile test project source files as part of the main API project -->
+  <ItemGroup>
+    <Compile Remove="tests\**" />
+    <EmbeddedResource Remove="tests\**" />
+    <None Remove="tests\**" />
+  </ItemGroup>
+
 </Project>
