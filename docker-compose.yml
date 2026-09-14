@@ -1,0 +1,43 @@
+services:
+
+  # -----------------------------
+  # SQL Server database
+  # -----------------------------
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: crn-sqlserver
+
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+
+    ports:
+      - "1433:1433"
+
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+
+  # -----------------------------
+  # ASP.NET Core API
+  # -----------------------------
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: crn-api
+
+    ports:
+      - "8081:8080"
+
+    depends_on:
+      - sqlserver
+
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=CRNTechnicalAssessmentDb;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True;"
+
+
+volumes:
+  sqlserver-data:

@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="../SDTechnicalAssessment.Application.Tests/SDTechnicalAssessment.Application.Tests.csproj" Id="ca97acf5-0b42-4221-b709-1abf52ad1386" />
+  </Folder>
+  <Project Path="../client/client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="../SDTechnicalAssessment.API.Tests/SDTechnicalAssessment.API.Tests.csproj" Id="82339562-4216-4659-96df-55424d2d157b" />
+  <Project Path="../SDTechnicalAssessment.Infrastructure.Tests/SDTechnicalAssessment.Infrastructure.Tests.csproj" Id="511607d9-5eba-4a68-b6bb-58dfa87ac5a6" />
+  <Project Path="SDTechnicalAssessment.csproj" />
+</Solution>
