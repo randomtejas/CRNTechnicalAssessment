@@ -81,9 +81,8 @@ namespace SDTechnicalAssessment.Application.Services
             // the password stored for the user.
             //
             // NOTE:
-            // We are keeping this simple for our assessment
-            // implementation. Later we can improve this by
-            // using password hashing.
+            // Verify the entered password against the hashed password
+            // stored for the user in the database.
             // ----------------------------------------------------
             // Verify the entered password against the hashed password stored in the database.
             var passwordResult = _passwordHasher.VerifyHashedPassword(

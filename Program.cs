@@ -365,11 +365,40 @@ app.UseAuthentication();
 // ------------------------------------------------------------
 app.UseAuthorization();
 
-// ------------------------------------------------------------
-// Map controller endpoints.
-// ------------------------------------------------------------
 app.MapControllers();
-// ------------------------------------------------------------
+
+// Seed Admin user
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<ApplicationDbContext>();
+
+    var passwordHasher = new PasswordHasher<User>();
+
+    var adminExists = await context.Users
+        .AnyAsync(u => u.Username == "admin");
+
+    if (!adminExists)
+    {
+        var adminUser = new User
+        {
+            Username = "admin",
+            Role = "Admin"
+        };
+
+        adminUser.Password = passwordHasher.HashPassword(
+            adminUser,
+            "Admin@123"
+        );
+
+        context.Users.Add(adminUser);
+
+        await context.SaveChangesAsync();
+    }
+}
+
+app.Run();// ------------------------------------------------------------
 // Start the application.
 // ------------------------------------------------------------
 app.Run();
