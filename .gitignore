@@ -30,6 +30,10 @@ Thumbs.db
 # Environment / secrets
 .env
 .env.*
+!.env.example
+
+# Generated Docker migration script
+docker-migrations.sql
 
 # Publish output
 publish/

@@ -36,6 +36,9 @@ services:
 
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+
+      Jwt__Key: ${JWT_KEY}
+
       ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=CRNTechnicalAssessmentDb;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True;"
 
 
