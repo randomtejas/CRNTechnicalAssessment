@@ -41,31 +41,7 @@ builder.Services.AddResponseCompression(options =>
 //
 // CORS allows a browser-based frontend (for example React)
 // running on another origin to call our API.
-//
-// Example:
-// React  -> http://localhost:5173
-// API    -> https://localhost:7130
-//
-// Without CORS configuration, the browser may block the request.
-// ------------------------------------------------------------
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("AllowFrontend", policy =>
-//    {
-//        policy
-//            // Allow our local React frontend.
-//            .WithOrigins(
-//                "http://localhost:5179",
-//                "https://localhost:5179"
-//            )
 
-//            // Allow headers such as Authorization and Content-Type.
-//            .AllowAnyHeader()
-
-//            // Allow GET, POST, PUT, DELETE, etc.
-//            .AllowAnyMethod();
-//    });
-//});
 
 
 
@@ -330,7 +306,7 @@ app.UseResponseCompression();
 // ------------------------------------------------------------
 // Redirect HTTP requests to HTTPS.
 // ------------------------------------------------------------
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 
 
@@ -398,7 +374,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.Run();// ------------------------------------------------------------
 // Start the application.
 // ------------------------------------------------------------
 app.Run();
